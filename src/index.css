@@ -161,9 +161,181 @@ body {
 	border-bottom: 0.5vh solid black;
 }
 
+.home-page-body {
+	padding: 1rem;
+	gap: 1rem;
+	display: flex;
+	flex-direction: row;
+}
+
+
+/* =========================================
+   Cat Slideshow
+========================================= */
+
+.cat-slideshow {
+	display: flex;
+	flex-direction: column;
+
+  position: relative;
+	width: 25vw;
+
+	gap: 10vh;
+  padding: 20px;
+
+  background:
+    radial-gradient(circle at 10% 0%, rgba(96, 165, 250, 0.14), transparent 40%),
+    radial-gradient(circle at 90% 100%, rgba(168, 85, 247, 0.14), transparent 40%),
+    rgba(8, 18, 38, 0.72);
+  border: 1px solid rgba(147, 197, 253, 0.16);
+  border-radius: 16px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cat-header .eyebrow {
+  margin: 0 0 4px;
+
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  
+	color: #60a5fa;
+}
+
+.cat-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #f1f5ff;
+}
+
+.cat-header > span {
+  font-size: 0.8rem;
+  color: #91a4bf;
+}
+
+.cat-image-container {
+  position: relative;
+  overflow: hidden;
+
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  background: #0f1e35;
+  border-radius: 12px;
+}
+
+.cat-image {
+  display: block;
+  object-fit: contain;
+
+  background: #080f1c;
+	width: 100%;
+  height: 100%;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.5s ease;
+}
+
+.cat-image:hover {
+  transform: scale(1.02);
+}
+
+.slide-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+
+  width: 38px;
+  height: 38px;
+
+  color: white;
+  background: rgba(8, 18, 38, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  opacity: 0;
+  transform: translateY(-50%);
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+  cursor: pointer;
+}
+
+.cat-image-container:hover .slide-button {
+  opacity: 1;
+}
+
+.slide-button:hover {
+  background: rgba(59, 130, 246, 0.65);
+}
+
+.slide-button.previous {
+  left: 12px;
+}
+
+.slide-button.next {
+  right: 12px;
+}
+
+.slide-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+
+  padding: 0;
+
+  background: rgba(148, 163, 184, 0.35);
+  border: none;
+  border-radius: 50%;
+  transition:
+    width 0.2s ease,
+    background 0.2s ease;
+  cursor: pointer;
+}
+
+.dot.active {
+  width: 20px;
+  background: #60a5fa;
+  border-radius: 999px;
+}
+
+
+/* =========================================
+   Schedule
+========================================= */
+
+.home-page-schedule-container {
+	width: 75vw;
+}
+
 .schedule {
   overflow-y: auto;
   box-sizing: border-box;
+	overflow-x: hidden;
   
 	width: 100%;
   padding: 24px;
@@ -181,7 +353,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 20px 50px rgba(0, 0, 0, 0.25);
 
-  --hour-height: calc(80dvh / 13);
+  --hour-height: calc(90dvh / 13);
   --blue: #60a5fa;
   --blue-bright: #93c5fd;
   --blue-dark: #2563eb;
@@ -562,9 +734,4 @@ body {
 
 .about-section-info {
   line-height: 0.5;
-}
-
-.home-page-schedule-container {
-	padding-top: 1rem;
-	width: 75vw;
 }
