@@ -37,8 +37,8 @@ body {
 }
 
 .hero h1 {
-	font-size = 2rem;
-	font-weight = 1000;
+	font-size: 1rem;
+	font-weight: 1000;
 	text-shadow: 0 0.25vh 1vh rgba(0, 0, 0, 1);
 }
 

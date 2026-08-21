@@ -30,7 +30,7 @@ export const schedule: RecurringScheduleItem[] = [
   },
   {
     id: "CompSys",
-		days: ["Mon", "Wed", "Fri"],
+		days: ["Mon", "Wed"],
     title: "Computer Systems II",
     subtitle: "Class: CS 3482",
 		start: "12:00",
@@ -53,7 +53,7 @@ export const schedule: RecurringScheduleItem[] = [
 		subtitle: "Class: MAT 3220",
     start: "13:00",
     end: "13:50",
-    color: "#60a5fa",
+    color: "#f87171",
   },
 	{
 		id: "DemistifyingLLMs",
