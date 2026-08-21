@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import Hero from "./components/Hero";
+import NavBar from "./components/Navbar";
 
 import Home from "./pages/Home";
 import Tutoring from "./pages/Tutoring";
@@ -12,8 +12,12 @@ import About from "./pages/About";
 export default function App() {
 	return (
 		<div className="webpage-body">
-			<Hero />
-		  <Routes>
+			<div className="hero"> 
+				<h1> KittyWeb </h1>
+				<NavBar />
+			</div>
+		  
+			<Routes>
         <Route path="/"					element={ <Home /> }		 />
         <Route path="/tutoring" element={ <Tutoring /> } />
         <Route path="/projects" element={ <Projects /> } />

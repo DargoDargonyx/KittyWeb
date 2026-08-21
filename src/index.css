@@ -25,10 +25,15 @@ body {
 	margin: 0;
 	padding: 0 2vh;
   
-	color: white;
-  background: linear-gradient(135deg, #1e3a8a, #7c3aed);
-	
-	border: 0.5vh solid black;
+  color: #ffffff;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(96, 165, 250, 0.22), transparent 35%),
+    radial-gradient(circle at 85% 80%, rgba(192, 132, 252, 0.20), transparent 35%),
+    linear-gradient(135deg, #172554 0%, #3730a3 50%, #6d28d9 100%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 20px 50px rgba(30, 27, 75, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .hero h1 {
@@ -57,7 +62,7 @@ body {
 
   color: white;
   background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.08);
+	border: 2px solid rgba(255, 255, 255, 0.08);
 	border-radius: 1vh;
 }
 
@@ -65,44 +70,449 @@ body {
 	border: 2px solid white;
 }
 
-.home-page {
-	border-left: 0.5vh solid black;
-	border-right: 0.5vh solid black;
-	border-bottom: 0.5vh solid black;
-}
-
-.tutoring-page {
-	border-left: 0.5vh solid black;
-	border-right: 0.5vh solid black;
-	border-bottom: 0.5vh solid black;
-}
-
-.projects-page {
-	border-left: 0.5vh solid black;
-	border-right: 0.5vh solid black;
-	border-bottom: 0.5vh solid black;
-}
-
-.settings-page {
-	border-left: 0.5vh solid black;
-	border-right: 0.5vh solid black;
-	border-bottom: 0.5vh solid black;
-}
-
-.about-page {
-	flex-direction: column;  
-	flex: 1;
+.page-header {
   display: flex;
-  justify-content: center;
-  overflow-y: auto;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
 
-	padding: 4vh 20vh;
-  min-height: 0;
-	gap: 2rem;
+  padding: 28px 32px;
+  width: 100%;
+  min-height: 120px;
+
+  color: #e8f1ff;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(59, 130, 246, 0.18), transparent 40%),
+    rgba(8, 18, 38, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(147, 197, 253, 0.18);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 12px 35px rgba(0, 0, 0, 0.18);
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  top: -120px;
+  right: -80px;
+
+  width: 220px;
+  height: 220px;
+
+  background: rgba(59, 130, 246, 0.2);
+  border-radius: 50%;
+  filter: blur(50px);
+
+  pointer-events: none;
+}
+
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+
+  width: 35%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+
+  pointer-events: none;
+}
+
+
+.page-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  
+	color: #f1f5ff;
+}
+
+/* =========================================
+   Home Page
+========================================= */
+
+.home-page {
+	padding: 1rem;
+	
+	background: #07111f;
+	border-left: 0.5vh solid black;
+	border-right: 0.5vh solid black;
+	border-bottom: 0.5vh solid black;
+}
+
+.schedule {
+  overflow-y: auto;
+  box-sizing: border-box;
+  
+	width: 100%;
+  padding: 24px;
+
+  color: #e8f1ff;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(59, 130, 246, 0.18), transparent 35%),
+    radial-gradient(circle at 90% 100%, rgba(99, 102, 241, 0.12), transparent 35%),
+    rgba(8, 18, 38, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(147, 197, 253, 0.18);
+  border-radius: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 50px rgba(0, 0, 0, 0.25);
+
+  --hour-height: calc(80dvh / 13);
+  --blue: #60a5fa;
+  --blue-bright: #93c5fd;
+  --blue-dark: #2563eb;
+  --surface: rgba(15, 30, 55, 0.65);
+  --surface-light: rgba(30, 58, 95, 0.45);
+  --border: rgba(147, 197, 253, 0.14);
+  --border-bright: rgba(147, 197, 253, 0.25);
+  --text: #e8f1ff;
+  --text-muted: #91a4bf;
+  --grid: rgba(148, 163, 184, 0.12);
+}
+
+.schedule-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.schedule-header h2 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  color: var(--text);
+}
+
+.view-button:hover {
+  background: rgba(59, 130, 246, 0.18);
+  border-color: rgba(147, 197, 253, 0.3);
+}
+
+/* =========================================
+   Calendar
+========================================= */
+
+.calendar {
+  overflow-x: auto;
+  overflow-y: visible;
+  
+	width: 100%;
+
+  background: rgba(5, 15, 30, 0.35);
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+}
+
+
+/* =========================================
+   Day Header
+========================================= */
+
+.day-header {
+  display: grid;
+
+  grid-template-columns: 10vh repeat(5, minmax(10vh, 30vh));
+  min-width: 850px;
+
+  background: linear-gradient(180deg, rgba(18, 38, 70, 0.85), rgba(10, 25, 48, 0.85));
+  border-bottom: 1px solid var(--border-bright);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.day {
+  padding: 14px 8px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: var(--blue-bright);
+  border-left: 1px solid var(--border);
+}
+
+.day:first-of-type {
+  border-left: none;
+}
+
+
+/* =========================================
+   Time Column
+========================================= */
+
+.time-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.time-label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+
+  padding-top: 8px;
+  
+	height: var(--hour-height);
+
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  color: var(--text-muted);
+  background: rgba(8, 20, 40, 0.65);
+  border-right: 1px solid var(--border);
+}
+
+
+/* =========================================
+   Calendar Body
+========================================= */
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: 10vh repeat(5, minmax(10vh, 30vh));
+  min-width: 850px;
+}
+
+.day-column {
+  position: relative;
+
+  min-width: 0;
+  height: 100%;
+
+  background: rgba(15, 30, 52, 0.32);
+  border-left: 1px solid var(--border);
+}
+
+
+/* =========================================
+   Hour Grid
+========================================= */
+
+.hour-line {
+  box-sizing: border-box;
+  height: var(--hour-height);
+  border-bottom: 1px solid var(--grid);
+}
+
+.day-column:hover {
+  background: rgba(59, 130, 246, 0.035);
+}
+
+
+/* =========================================
+   Events
+========================================= */
+
+.event {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  box-sizing: border-box;
+
+  left: 5px;
+  right: 5px;
+
+  margin-top: 4px;
+  padding: 1vh 1vw;
+
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.25), rgba(37, 99, 235, 0.10));
+  border: 1px solid rgba(147, 197, 253, 0.20);
+  border-left: 4px solid var(--blue);
+  border-radius: 9px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+  z-index: 2;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.event:hover {
+  z-index: 100;
 
   background:
-    radial-gradient(circle at top, rgba(124, 58, 237, 0.25), transparent 40%),
-    #111827;
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.36),
+      rgba(37, 99, 235, 0.18)
+    );
+  border-color: rgba(147, 197, 253, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    0 8px 24px rgba(37, 99, 235, 0.20);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================
+   Event Text
+========================================= */
+
+.event strong {
+  display: block;
+  overflow: hidden;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+
+  color: #f0f7ff;
+}
+
+.event > span {
+  font-size: 0.72rem;
+  line-height: 1.3;
+
+  color: #a9c0dc;
+}
+
+
+/* =========================================
+   Tooltip
+========================================= */
+
+.event-tooltip {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  box-sizing: border-box;
+
+  top: calc(100% + 12px);
+  left: 0;
+  width: 220px;
+
+  gap: 0.5rem;
+  padding: 14px;
+
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.5;
+
+  color: var(--text);
+  background: linear-gradient(135deg, rgba(15, 35, 65, 0.96), rgba(8, 20, 40, 0.96));
+  border: 1px solid rgba(147, 197, 253, 0.20);
+  border-radius: 10px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  opacity: 0;
+  visibility: hidden;
+  
+	pointer-events: none;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease,
+    visibility 0.15s ease;
+}
+
+.event:hover .event-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =========================================
+   Tutoring Page
+========================================= */
+
+.tutoring-page {
+	padding: 1rem;
+	
+	background: #07111f;
+	border-left: 0.5vh solid black;
+	border-right: 0.5vh solid black;
+	border-bottom: 0.5vh solid black;
+}
+
+/* =========================================
+   Projects Page
+========================================= */
+
+.projects-page {
+	padding: 1rem;
+	
+	background: #07111f;
+	border-left: 0.5vh solid black;
+	border-right: 0.5vh solid black;
+	border-bottom: 0.5vh solid black;
+}
+
+/* =========================================
+   Settings Page
+========================================= */
+
+.settings-page {
+	padding: 1rem;
+	
+	background: #07111f;
+	border-left: 0.5vh solid black;
+	border-right: 0.5vh solid black;
+	border-bottom: 0.5vh solid black;
+}
+
+/* =========================================
+   About Page
+========================================= */
+
+.about-page {
+  display: flex;
+	flex-direction: column;  
+  justify-content: center;
+	min-height: 0;
+  overflow-y: auto;
+	
+	gap: 1rem;
+	padding: 1rem;
+		
+	background: #07111f;
+	border-left: 0.5vh solid black;
+	border-right: 0.5vh solid black;
+	border-bottom: 0.5vh solid black;
 }
 
 .about-card {
@@ -116,10 +526,8 @@ body {
     rgba(255, 255, 255, 0.12),
     rgba(255, 255, 255, 0.04)
   );
-
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
-
   backdrop-filter: blur(15px);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.35),
@@ -129,10 +537,9 @@ body {
 .about-section {
   padding: 6vh;
 
+  background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
-
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .about-section h2 {
@@ -140,14 +547,12 @@ body {
   padding-bottom: 2vh;
 
   color: #bfdbfe;
-
   border-bottom: 2px solid rgba(96, 165, 250, 0.4);
 }
 
 .about-section p {
   font-size: 1.1rem;
   line-height: 1.7;
-
   color: #e5e7eb;
 }
 
@@ -160,198 +565,6 @@ body {
 }
 
 .home-page-schedule-container {
-	padding: 1rem;
+	padding-top: 1rem;
 	width: 75vw;
-}
-
-.schedule {
-  width: 100%;
-  padding: 24px;
-  color: white;
-  background: #565656;
-  border: 2px solid #e5e7eb;
-  border-radius: 16px;
-  box-sizing: border-box;
-
-	overflow-y: auto;
-
-	--hour-height: calc(80dvh / 13)
-}
-
-.schedule-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.schedule-header h2 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-}
-
-.view-button {
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  background: #f3f4f6;
-  border: 0;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.view-button:hover {
-  background: #e5e7eb;
-}
-
-.calendar {
-  width: 100%;
-  overflow-x: auto;
-	overflow-y: visible;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-}
-
-.day-header {
-  display: grid;
-  grid-template-columns: 10vh repeat(5, minmax(10vh, 30vh));
-  min-width: 850px;
-  background: #232323;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.day {
-  padding: 14px 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: white;
-  text-align: center;
-  border-left: 1px solid #e5e7eb;
-}
-
-.time-column {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-.calendar-body {
-  display: grid;
-  grid-template-columns: 10vh repeat(5, minmax(10vh, 30vh));
-  min-width: 850px;
-}
-
-.calendar-body > .time-column {
-  background: #ffffff;
-}
-
-.time-label {
-	height: var(--hour-height);
-  position: relative;
-	text-align: center;
-  font-size: 1rem;
-  color: white;
-	background: #232323;
-}
-
-.day-column {
-  position: relative;
-	height: 100%;
-  min-width: 0;
-	background: #efefef;
-  border-left: 1px solid #898989;
-}
-
-.hour-line {
-	height: calc(100% / 13);
-  box-sizing: border-box;
-  border-bottom: 1px solid #bcbcbc;
-}
-
-.event {
-  position: absolute;
-  left: 5px;
-  right: 5px;
-
-  display: flex;
-  flex-direction: column;
-	justify-content: center;
-
-	margin-top: 4px;
-  box-sizing: border-box;
-  padding: 1vh;
-	padding-left: 1vw;
-
-  background: #f8fafc;
-  border-left: 4px solid #6366f1;
-  border-radius: 6px;
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-
-  z-index: 2;
-}
-
-.event strong {
-  display: block;
-  overflow: hidden;
-
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.3;
-  color: #111827;
-
-  text-overflow: ellipsis;
-}
-
-.event-tooltip span {
-  font-size: 0.75rem;
-  line-height: 1.3;
-  color: white;
-}
-
-.event:hover {
-  z-index: 100;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.event-tooltip {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-
-  position: absolute;
-  top: calc(100% + 5vh);
-	left: 0vw;
-
-  width: 10vw;
-  padding: 2vh;
-
-  background: #111827;
-  color: white;
-
-  font-size: 1rem;
-	font-weight: 600;
-  line-height: 1.5;
-
-  border-radius: 8px;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-
-  transform: translateY(-50%) translateX(-4px);
-
-  transition:
-    opacity 0.15s ease,
-    transform 0.15s ease;
-}
-
-.event:hover .event-tooltip {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(-50%) translateX(0);
 }

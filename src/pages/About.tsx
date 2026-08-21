@@ -1,7 +1,7 @@
 export default function About() {
 	return (
 		<section className="about-page">
-			<div className="about-card">
+			<div className="page-header">
 				<h1 className="about-title"> About This Webpage </h1>
 			</div>
 

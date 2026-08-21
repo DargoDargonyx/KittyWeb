@@ -1,7 +1,9 @@
 export default function Projects() {
 	return (
 		<section className="projects-page">
-			<h2> Projects </h2>
+			<div className="page-header">
+				<h1> Projects </h1>
+			</div>
 		</section>
 	);
 }

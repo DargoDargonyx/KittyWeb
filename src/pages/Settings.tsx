@@ -1,7 +1,9 @@
 export default function Settings() {
 	return (
 		<section className="settings-page">
-			<h2> Settings </h2>
+			<div className="page-header">
+				<h1> Settings </h1>
+			</div>
 		</section>
 	);
 }
