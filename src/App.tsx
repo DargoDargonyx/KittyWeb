@@ -18,11 +18,11 @@ export default function App() {
 			</div>
 		  
 			<Routes>
-        <Route path="/KittyWeb"					 element={ <Home />     }	/>
-        <Route path="/KittyWeb/tutoring" element={ <Tutoring /> } />
-        <Route path="/KittyWeb/projects" element={ <Projects /> } />
-        <Route path="/KittyWeb/settings" element={ <Settings /> } />
-        <Route path="/KittyWeb/about"		 element={ <About />		} />
+        <Route path="/"					element={ <Home /> }		 />
+        <Route path="/tutoring" element={ <Tutoring /> } />
+        <Route path="/projects" element={ <Projects /> } />
+        <Route path="/settings" element={ <Settings /> } />
+        <Route path="/about"		element={ <About /> }    />
       </Routes>
 		</div>
 	);
