@@ -1,4 +1,4 @@
-import Schedule from "./../components/Schedule";
+import Schedule from "./../components/general/Schedule";
 import CatSlideshow from "./../components/CatSlideshow";
 
 

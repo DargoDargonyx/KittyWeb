@@ -1,4 +1,4 @@
-import { days, schedule } from "./../data/schedule.tsx";
+import { days, schedule } from "./../../data/schedule.tsx";
 
 
 const START_HOUR = 9;
