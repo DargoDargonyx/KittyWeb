@@ -42,3 +42,19 @@ export const cs_3667_demos: TutoringDemo[] = [];
 export const cs_3460_demos: TutoringDemo[] = [];
 
 export const cs_3490_demos: TutoringDemo[] = [];
+
+export const mat_0010_demos: TutoringDemo[] = [];
+
+export const mat_1001_demos: TutoringDemo[] = [];
+
+export const mat_1020_demos: TutoringDemo[] = [];
+
+export const mat_1110_demos: TutoringDemo[] = [];
+
+export const mat_1120_demos: TutoringDemo[] = [];
+
+export const mat_2110_demos: TutoringDemo[] = [];
+
+export const mat_2240_demos: TutoringDemo[] = [];
+
+export const mat_3110_demos: TutoringDemo[] = [];
