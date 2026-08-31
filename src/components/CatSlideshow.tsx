@@ -3,7 +3,7 @@ import { mistyImages, marcyImages } from "./../data/images";
 
 
 export default function CatSlideshow() {
-  const [currentMisty, setCurrentMisty] = useState(0);
+	const [currentMisty, setCurrentMisty] = useState(0);
 	const [currentMarcy, setCurrentMarcy] = useState(0);
 
 	useEffect(() => {
@@ -42,9 +42,9 @@ export default function CatSlideshow() {
 		setCurrentMarcy((prev) => prev === marcyImages.length - 1 ? 0 : prev + 1);
 	};
 
-  return (
-    <section className="cat-slideshow">
-      <div>
+	return (
+		<section className="cat-slideshow">
+			<div>
 				<div className="cat-header">
 					<div>
 						<p className="eyebrow"> Introducing the Explorer </p>
@@ -66,7 +66,7 @@ export default function CatSlideshow() {
 						onClick={ previousMisty }
 						aria-label="Previous photo"
 					>
-						←
+						<-
 					</button>
 
 					<button
@@ -74,7 +74,7 @@ export default function CatSlideshow() {
 						onClick={ nextMisty }
 						aria-label="Next photo"
 					>
-						→
+						->
 					</button>
 				</div>
 
@@ -112,7 +112,7 @@ export default function CatSlideshow() {
 						onClick={ previousMarcy }
 						aria-label="Previous photo"
 					>
-						←
+						<-
 					</button>
 
 					<button
@@ -120,7 +120,7 @@ export default function CatSlideshow() {
 						onClick={ nextMarcy }
 						aria-label="Next photo"
 					>
-						→
+						<-
 					</button>
 				</div>
 
@@ -136,5 +136,5 @@ export default function CatSlideshow() {
 				</div>
 			</div>
 		</section>
-  );
+	);
 }

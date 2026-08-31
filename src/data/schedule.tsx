@@ -1,42 +1,42 @@
 export type Day = "Mon" | "Tue" | "Wed" | "Thu" | "Fri";
 
 export const days: Day[] = [
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
+	"Mon",
+	"Tue",
+	"Wed",
+	"Thu",
+	"Fri",
 ];
 
 export type RecurringScheduleItem = {
-  id: string;
+	id: string;
 	days: Day[];
-  title: string;
-  subtitle: string,
+	title: string;
+	subtitle: string,
 	start: string;
-  end: string;
-  color?: string;
+	end: string;
+	color?: string;
 };
 
 export const schedule: RecurringScheduleItem[] = [
-  {
-    id: "NumTheory",
+	{
+		id: "NumTheory",
 		days: ["Mon", "Wed", "Fri"],
-    title: "Number Theory",
-    subtitle: "Class: MAT 4010",
+		title: "Number Theory",
+		subtitle: "Class: MAT 4010",
 		start: "11:00",
-    end: "11:50",
-    color: "#f87171",
-  },
-  {
-    id: "CompSys",
+		end: "11:50",
+		color: "#f87171",
+	},
+	{
+		id: "CompSys",
 		days: ["Mon", "Wed"],
-    title: "Computer Systems II",
-    subtitle: "Class: CS 3482",
+		title: "Computer Systems II",
+		subtitle: "Class: CS 3482",
 		start: "12:00",
-    end: "12:50",
-    color: "#60a5fa",
-  },
+		end: "12:50",
+		color: "#60a5fa",
+	},
 	{
 		id: "CompSysLab",
 		days: ["Thu"],
@@ -46,15 +46,15 @@ export const schedule: RecurringScheduleItem[] = [
 		end: "17:50",
 		color: "#60a5fa"
 	},
-  {
-    id: "RealAnalysis",
+	{
+		id: "RealAnalysis",
 		days: ["Mon", "Wed", "Fri"],
-    title: "Real Analysis",
+		title: "Real Analysis",
 		subtitle: "Class: MAT 3220",
-    start: "13:00",
-    end: "13:50",
-    color: "#f87171",
-  },
+		start: "13:00",
+		end: "13:50",
+		color: "#f87171",
+	},
 	{
 		id: "DemistifyingLLMs",
 		days: ["Mon", "Wed", "Fri"],

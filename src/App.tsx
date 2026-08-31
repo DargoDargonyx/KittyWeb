@@ -22,15 +22,15 @@ export default function App() {
 			</div>
 		  
 			<Routes>
-        <Route path="/"					element={ <Home /> } />
-        <Route path="/settings" element={ <Settings /> } />
-        <Route path="/about"		element={ <About /> } />
+				<Route path="/" element={<Home/>}/>
+				<Route path="/settings" element={<Settings/>}/>
+				<Route path="/about" element={<About/>}/>
         
-				<Route path="/tutoring"				element={ <Tutoring /> } />
-        <Route path="/tutoring/cs"		element={ <CSTutoring /> } />
-        <Route path="/tutoring/math"	element={ <MathTutoring /> } />
+				<Route path="/tutoring" element={<Tutoring/>}/>
+				<Route path="/tutoring/cs" element={<CSTutoring/>}/>
+				<Route path="/tutoring/math" element={<MathTutoring/>}/>
         
-				<Route path="/projects" element={ <Projects /> } />
+				<Route path="/projects" element={<Projects/>}/>
       </Routes>
 		</div>
 	);
