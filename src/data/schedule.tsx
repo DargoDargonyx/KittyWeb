@@ -90,5 +90,14 @@ export const schedule: RecurringScheduleItem[] = [
 		start: "17:00",
 		end: "19:30",
 		color: "#60a5fa"
+	},
+	{
+		id: "MathTutroing",
+		days: ["Tue"],
+		title: "Math Tutoring",
+		subtitle: "Tutoring at the Student Learning Center",
+		start: "16:30",
+		end: "19:30",
+		color: "#f87171"
 	}
 ];
