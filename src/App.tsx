@@ -17,7 +17,10 @@ export default function App() {
 	return (
 		<div className="webpage-body">
 			<div className="hero"> 
-				<h1> KittyWeb </h1>
+				<div className="hero-title"> 
+					<h1> KittyWeb </h1>
+				</div>
+
 				<NavBar />
 			</div>
 		  

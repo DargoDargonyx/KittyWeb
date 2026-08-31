@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
 	return (
 		<nav className="main-navbar">
-			<Link to="/">	Home </Link>
+			<div className="main-navbar-link"> <Link to="/">	Home </Link> </div>
 			
 			<div className="main-navbar-dropdown"> 
 				<Link to="/tutoring"> Tutoring </Link>
@@ -16,9 +16,9 @@ export default function NavBar() {
 			</div>
 			
 
-			<Link to="/projects"> Projects </Link>
-			<Link to="/settings"> Settings </Link>
-			<Link to="/about"> About </Link>
+			<div className="main-navbar-link"> <Link to="/projects"> Projects </Link> </div>
+			<div className="main-navbar-link"> <Link to="/settings"> Settings </Link> </div>
+			<div className="main-navbar-link"> <Link to="/about"> About </Link> </div>
 		</nav>
 	);
 }
