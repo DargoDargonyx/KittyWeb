@@ -1,4 +1,4 @@
-import type { Class } from "./../data/classes";
+import type { Class } from "./../../data/classes";
 
 
 interface Props {

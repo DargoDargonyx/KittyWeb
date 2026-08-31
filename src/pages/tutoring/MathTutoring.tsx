@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import TutoringClassNav from "./../../components/TutoringClassNav";
+import TutoringClassNav from "./../../components/tutoring/TutoringClassNav";
 import { math_classes } from "./../../data/classes";
 
 

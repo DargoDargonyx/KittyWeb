@@ -771,17 +771,139 @@ body {
   border: 2px solid white;
 }
 
+.tutoring-class-nav button.active {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid white;
+}
+
 /* =========================================
-   Class Body
+   Tutoring Class Body
 ========================================= */
 
 .tutoring-page-class-body {
+	display: flex;
+	flex-direction: column;
   flex: 1;
   padding: 1rem;
 
   background: rgba(0, 0, 0, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.05);
   border-radius: 1rem;
+}
+
+/* =========================================
+   Tutoring Class Section Nav
+========================================= */
+
+.tutoring-class-section-nav {
+	display: flex;
+	flex-direction: row;
+	gap: max(1rem, 10px);
+	justify-content: center;
+}
+
+.tutoring-class-section-nav button {
+	padding: max(1vw, 30px) max(2vw, 100px);
+	min-width: max(35vw, 200px);
+
+	font-size: max(2rem, 15px);
+
+	color: white;
+	background: rgba(0, 0, 10, 0.1);
+	border: 2px solid rgba(255, 255, 255, 0.4);
+	border-radius: max(1rem, 15px);
+}
+
+.tutoring-class-section-nav button.active {
+	background: rgba(0, 0, 100, 0.3);
+	border: 2px solid white;
+}
+
+/* =========================================
+   Tutoring Binary Demo
+========================================= */
+
+.binary-demo {
+  padding: 40px;
+  margin-top: 50px;
+
+  text-align: flex-start;
+
+  color: white;
+  background: linear-gradient(135deg, #111827, #1e3a8a);
+
+  border-radius: 15px;
+}
+
+.binary-demo h1 {
+  margin-top: -10px;
+  margin-bottom: 50px;
+  padding: 12px 20px;
+
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+
+  border: 2px solid #2563eb;
+  border-radius: 20px;
+}
+
+.binary-demo-header.invalid {
+  background: rgba(220, 38, 38, 0.18);
+
+  border: 2px solid rgba(248, 113, 113, 0.35);
+  border-radius: 12px;
+}
+
+.binary-demo input {
+  width: 150px;
+  padding: 12px;
+
+  font-size: 1.5rem;
+  text-align: center;
+
+  color: white;
+  background: #0f172a;
+
+  border: 2px solid #60a5fa;
+  border-radius: 10px;
+}
+
+.binary-demo-display {
+  width: 100%;
+  max-width: 1150px;
+  margin-top: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.binary-demo-bit {
+  width: 45px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: bold;
+
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.1);
+
+  border: 2px solid #475569;
+  border-radius: 8px;
+}
+
+.binary-demo-bit.active {
+  color: white;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+
+  border-color: #93c5fd;
+
+  box-shadow: 0 0 15px rgba(96, 165, 250, 0.8);
 }
 
 /* =========================================
