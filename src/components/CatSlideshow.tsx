@@ -66,7 +66,7 @@ export default function CatSlideshow() {
 						onClick={ previousMisty }
 						aria-label="Previous photo"
 					>
-						<-
+						Prev
 					</button>
 
 					<button
@@ -74,7 +74,7 @@ export default function CatSlideshow() {
 						onClick={ nextMisty }
 						aria-label="Next photo"
 					>
-						->
+						Next
 					</button>
 				</div>
 
@@ -112,7 +112,7 @@ export default function CatSlideshow() {
 						onClick={ previousMarcy }
 						aria-label="Previous photo"
 					>
-						<-
+						Prev
 					</button>
 
 					<button
@@ -120,7 +120,7 @@ export default function CatSlideshow() {
 						onClick={ nextMarcy }
 						aria-label="Next photo"
 					>
-						<-
+						Next
 					</button>
 				</div>
 
