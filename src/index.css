@@ -437,7 +437,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 20px 50px rgba(0, 0, 0, 0.25);
 
-  --hour-height: max(calc(150vh / 13), 70px);
+  --hour-height: max(calc(100vh / 13), 30px);
   --blue: #60a5fa;
   --blue-bright: #93c5fd;
   --blue-dark: #2563eb;
@@ -467,9 +467,71 @@ body {
   color: var(--text);
 }
 
-.view-button:hover {
+.schedule-navigation {
+  display: flex;
+	flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+ /* =========================================
+    Week Controls
+ ========================================= */
+
+.week-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.week-controls button {
+  padding: 0.5rem 0.85rem;
+
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: var(--text);
+  background: rgba(30, 58, 95, 0.45);
+
+  border: 1px solid var(--border-bright);
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.week-controls button:hover {
   background: rgba(59, 130, 246, 0.18);
-  border-color: rgba(147, 197, 253, 0.3);
+  border-color: rgba(147, 197, 253, 0.35);
+
+  box-shadow:
+    0 4px 12px rgba(37, 99, 235, 0.15);
+
+  transform: translateY(-1px);
+}
+
+.week-controls button:active {
+  transform: translateY(0);
+}
+
+.week-controls button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.week-label {
+  margin: 0 0 0 1rem;
+
+  font-size: 0.8rem;
+  font-weight: 500;
+
+  color: var(--text-muted);
 }
 
 /* =========================================
@@ -485,6 +547,13 @@ body {
   border-radius: 12px;
 }
 
+.day-header,
+.calendar-body {
+  min-width: calc(
+    max(3vw, 60px) + (7 * max(7vw, 140px))
+  );
+}
+
 /* =========================================
    Day Header
 ========================================= */
@@ -492,7 +561,7 @@ body {
 .day-header {
   display: grid;
 
-  grid-template-columns: max(5vw, 80px) repeat(5, max(10vw, 150px));
+  grid-template-columns: max(3vw, 60px) repeat(7, max(7vw, 140px));
 
   background: linear-gradient(
     180deg,
@@ -507,8 +576,8 @@ body {
 .day {
   padding: 14px 8px;
 
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 800;
   text-align: center;
 
   color: var(--blue-bright);
@@ -531,12 +600,12 @@ body {
 
 .time-label {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+	flex-direction: column;
   position: relative;
   box-sizing: border-box;
 
-  padding-top: 8px;
+  padding-top: max(2vh, 20px);
+	padding-left: max(0.5vw, 10px);
 
   height: var(--hour-height);
 
@@ -548,20 +617,24 @@ body {
   border-right: 1px solid var(--border);
 }
 
+.time-label p {
+	margin: 0;
+}
+
 /* =========================================
    Calendar Body
 ========================================= */
 
 .calendar-body {
   display: grid;
-  grid-template-columns: max(5vw, 80px) repeat(5, max(10vw, 150px));
+  grid-template-columns: max(3vw, 60px) repeat(7, max(7vw, 140px));
 }
 
 .day-column {
   position: relative;
 
   min-width: 0;
-  height: 100%;
+  height: calc(var(--hour-height) * 13);
 
   background: rgba(15, 30, 52, 0.32);
   border-left: 1px solid var(--border);
@@ -645,8 +718,8 @@ body {
   display: block;
   overflow: hidden;
 
-  font-size: 0.75rem;
-  font-weight: 800;
+  font-size: max(0.5rem, 10px);
+  font-weight: 1000;
   line-height: 1.8;
   text-overflow: ellipsis;
 

@@ -16,9 +16,15 @@ export default function NavBar() {
 			</div>
 			
 
-			<div className="main-navbar-link"> <Link to="/projects"> Projects </Link> </div>
-			<div className="main-navbar-link"> <Link to="/settings"> Settings </Link> </div>
-			<div className="main-navbar-link"> <Link to="/about"> About </Link> </div>
+			<div className="main-navbar-link"> 
+				<Link to="/projects"> Projects </Link> 
+			</div>
+			<div className="main-navbar-link"> 
+				<Link to="/settings"> Settings </Link> 
+			</div>
+			<div className="main-navbar-link"> 
+				<Link to="/about"> About </Link> 
+			</div>
 		</nav>
 	);
 }
