@@ -9,17 +9,23 @@ import type {
 } from "../types/schedule";
 
 export const DAYS: Day[] = [
-	"Sunday",
 	"Monday",
 	"Tuesday",
 	"Wednesday",
 	"Thursday",
 	"Friday",
 	"Saturday",
+	"Sunday",
 ];
 
 function formatTime(time: string) {
 	return time.slice(0, 5);
+}
+
+function getDayName(date: Date): Day {
+	const dayOfWeek = date.getDay();
+	const mondayFirstIndex = (dayOfWeek + 6) % 7;
+	return DAYS[mondayFirstIndex];
 }
 
 export async function getScheduleForWeek(
@@ -74,7 +80,7 @@ export async function getScheduleForWeek(
 			.split("T")[0];
 
 		const dayOfWeek = date.getDay();
-		const day = DAYS[dayOfWeek];
+		const day = getDayName(date);
 		const dayRules = (rules as AvailabilityRule[]).filter(
 			(rule) => rule.day_of_week === dayOfWeek
 		);
@@ -89,13 +95,14 @@ export async function getScheduleForWeek(
 				end: formatTime(rule.end_time),
 				days: [day],
 				color: rule.color,
+				overnight: rule.overnight,
 			});
 		}
 	}
 
 	for (const exception of exceptions as ScheduleException[]) {
 		const date = new Date(`${exception.date}T00:00:00`);
-		const day = DAYS[date.getDay()];
+		const day = getDayName(date);
 
 		events.push({
 			id: `exception-${exception.id}`,
@@ -105,13 +112,14 @@ export async function getScheduleForWeek(
 			start: formatTime(exception.start_time),
 			end: formatTime(exception.end_time),
 			days: [day],
-			color: exception.type === "available" ? "#22c55e" : "#ef4444",
+			color: exception.color,
+			overnight: exception.overnight,
 		});
 	}
 
 	for (const appointment of appointments as Appointment[]) {
 		const date = new Date(`${appointment.date}T00:00:00`);
-		const day = DAYS[date.getDay()];
+		const day = getDayName(date);
 
 		events.push({
 			id: `appointment-${appointment.id}`,
@@ -120,6 +128,7 @@ export async function getScheduleForWeek(
 			end: formatTime(appointment.end_time),
 			days: [day],
 			color: "#f59e0b",
+			overnight: false,
 		});
 	}
 

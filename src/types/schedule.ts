@@ -1,11 +1,11 @@
 export type Day =
-	| "Sunday"
 	| "Monday"
 	| "Tuesday"
 	| "Wednesday"
 	| "Thursday"
 	| "Friday"
-	| "Saturday";
+	| "Saturday"
+	| "Sunday";
 
 export type ScheduleEvent = {
 	id: string;
@@ -15,6 +15,7 @@ export type ScheduleEvent = {
 	end: string;
 	days: Day[];
 	color?: string;
+	overnight: boolean;
 };
 
 export type AvailabilityRule = {
@@ -27,6 +28,7 @@ export type AvailabilityRule = {
 	subtitle?: string | null;
 	color: string;
 	active: boolean;
+	overnight: boolean;
 };
 
 export type ScheduleException = {
@@ -38,6 +40,8 @@ export type ScheduleException = {
 	title?: string | null;
 	subtitle?: string | null;
 	notes?: string | null;
+	color: string;
+	overnight: boolean;
 };
 
 export type Appointment = {

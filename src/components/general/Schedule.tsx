@@ -3,7 +3,7 @@ import { getScheduleForWeek, DAYS } from "../../lib/schedule";
 import type { ScheduleEvent } from "../../types/schedule";
 
 const START_HOUR = 9;
-const END_HOUR = 22;
+const END_HOUR = 24;
 
 function timeToMinutes(time: string) {
 	const [hours, minutes] = time.split(":").map(Number);
@@ -11,9 +11,11 @@ function timeToMinutes(time: string) {
 	return hours * 60 + minutes;
 }
 
-function getEventStyle(start: string, end: string) {
+function getEventStyle(start: string, end: string, overnight: boolean) {
 	const startMinutes = timeToMinutes(start);
-	const endMinutes = timeToMinutes(end);
+	let endMinutes = timeToMinutes(end);
+	if (overnight && endMinutes <= startMinutes) endMinutes += 24 * 60;
+	if (endMinutes > END_HOUR * 60) endMinutes = END_HOUR * 60 - 10;
 	const calendarStart = START_HOUR * 60;
 	const calendarDuration = (END_HOUR - START_HOUR) * 60;
 	const top = ((startMinutes - calendarStart) / calendarDuration) * 100;
@@ -47,11 +49,19 @@ function formatWeekLabel(startDate: string) {
 	return `${startMonth} ${startDay}–${endMonth} ${endDay}, ${year}`;
 }
 
+function formatDateLocal(date: Date) {
+	const year = date.getFullYear();
+	const month = String(date.getMonth() + 1).padStart(2, "0");
+	const day = String(date.getDate()).padStart(2, "0");
+
+	return `${year}-${month}-${day}`;
+}
+
 export default function Schedule() {
 	const [schedule, setSchedule] = useState<ScheduleEvent[]>([]);
 	const [selectedWeek, setSelectedWeek] = useState(() => {
 		const monday = getMonday(new Date());
-		return monday.toISOString().split("T")[0];
+		return formatDateLocal(monday);
 	});
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
@@ -77,12 +87,12 @@ export default function Schedule() {
 	function changeWeek(amount: number) {
 		const date = new Date(`${selectedWeek}T00:00:00`);
 		date.setDate(date.getDate() + amount * 7);
-		setSelectedWeek(date.toISOString().split("T")[0]);
+		setSelectedWeek(formatDateLocal(date));
 	}
 
 	function goToCurrentWeek() {
 		const monday = getMonday(new Date());
-		setSelectedWeek(monday.toISOString().split("T")[0]);
+		setSelectedWeek(formatDateLocal(monday));
 	}
 
 	return (
@@ -138,7 +148,7 @@ export default function Schedule() {
 								))}
 
 								{schedule.filter((event) => event.days.includes(day)).map((event) => {
-									const style = getEventStyle(event.start, event.end);
+									const style = getEventStyle(event.start, event.end, event.overnight);
 
 									return (
 										<div

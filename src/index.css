@@ -437,7 +437,7 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     0 20px 50px rgba(0, 0, 0, 0.25);
 
-  --hour-height: max(calc(100vh / 13), 80px);
+  --hour-height: max(calc(100vh / 15), 30px);
   --blue: #60a5fa;
   --blue-bright: #93c5fd;
   --blue-dark: #2563eb;
@@ -604,7 +604,7 @@ body {
   position: relative;
   box-sizing: border-box;
 
-  padding-top: max(2vh, 20px);
+  padding-top: max(1vh, 15px);
 	padding-left: max(0.5vw, 10px);
 
   height: var(--hour-height);
@@ -634,7 +634,7 @@ body {
   position: relative;
 
   min-width: 0;
-  height: calc(var(--hour-height) * 13);
+  height: calc(var(--hour-height) * 15);
 
   background: rgba(15, 30, 52, 0.32);
   border-left: 1px solid var(--border);
@@ -743,15 +743,15 @@ body {
   position: absolute;
   box-sizing: border-box;
 
-  top: calc(100% + 12px);
+  bottom: calc(100% + 24px);
   left: 0;
-  width: max(9vw, 120px);
+  width: max(6vw, 120px);
 
   gap: 0.5rem;
   padding: 14px;
 
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 600;
   line-height: 1.5;
 
   color: var(--text);
